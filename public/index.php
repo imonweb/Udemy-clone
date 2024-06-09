@@ -2,9 +2,18 @@
 
 class App 
 {
+  protected $controller = '_404';
+
   function __construct()
   {
-    print_r($this->getURL());
+   $arr = $this->getURL();
+
+   $filename = 
+
+   if(file_exists($filename ))
+   {
+
+   } 
   }
 
   private function getURL()
@@ -18,4 +27,4 @@ class App
 }
 
 $app = new App();
-var_dump($app);
+// var_dump($app);
