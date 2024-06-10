@@ -8,12 +8,14 @@ class App
   {
    $arr = $this->getURL();
 
-   $filename = 
+   $filename = '../app/controllers/' . ucfirst($arr[0]) . '.php';
 
    if(file_exists($filename ))
    {
-
-   } 
+    require $filename;
+   } else {
+    require '../app/controllers/' . $controller . '.php';
+   }
   }
 
   private function getURL()
