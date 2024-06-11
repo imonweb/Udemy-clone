@@ -1,8 +1,16 @@
 <?php 
 
+function show($stuff)
+{ 
+  echo "<pre>";
+  print_r($stuff);
+  echo "</pre>";
+}
+
 class App 
 {
   protected $controller = '_404';
+  protected $method = 'index';
 
   function __construct()
   {
@@ -13,9 +21,22 @@ class App
    if(file_exists($filename ))
    {
     require $filename;
+    $this->controller = $arr[0];
    } else {
-    require '../app/controllers/' . $controller . '.php';
+    require '../app/controllers/' . $this->controller . '.php';
    }
+   show($arr);
+   $mycontroller = new $this->controller();
+   $mymethod = $arr[1] ?? $this->method;
+
+   if(method_exists($mycontroller, strtolower($mymethod)) )
+   {
+    $this->method = strtolower($mymethod);
+   }
+
+   call_user_func_array([$mycontroller,$this->method], $arr);
+
+    
   }
 
   private function getURL()
