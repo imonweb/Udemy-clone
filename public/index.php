@@ -22,18 +22,25 @@ class App
    {
     require $filename;
     $this->controller = $arr[0];
+    unset($arr[0]);
    } else {
     require '../app/controllers/' . $this->controller . '.php';
    }
-   show($arr);
+  //  show($arr);
    $mycontroller = new $this->controller();
    $mymethod = $arr[1] ?? $this->method;
 
-   if(method_exists($mycontroller, strtolower($mymethod)) )
-   {
-    $this->method = strtolower($mymethod);
+   if(!empty($arr[1])){
+     if(method_exists($mycontroller, strtolower($mymethod)) )
+     {
+       $this->method = strtolower($mymethod);
+       unset($arr[1]);
+     }
    }
 
+  //  show($arr);
+  $arr = array_values($arr);
+  // show($arr);
    call_user_func_array([$mycontroller,$this->method], $arr);
 
     
