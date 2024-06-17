@@ -1,11 +1,6 @@
 <?php 
 
-function show($stuff)
-{ 
-  echo "<pre>";
-  print_r($stuff);
-  echo "</pre>";
-}
+require "../app/core/init.php";
 
 class App 
 {
