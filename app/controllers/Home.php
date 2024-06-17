@@ -7,9 +7,9 @@
 
 class Home 
 {
-  public function index($id)
+  public function index()
   {
-    echo 'home page' . $id;
+    echo 'home view page';
   }
 
   public function edit()
@@ -17,9 +17,9 @@ class Home
     echo 'home editing';
   }
 
-  public function delete($id)
+  public function delete()
   {
-    echo 'home delete ' . $id;
+    echo 'home delete ';
   }
 
 
