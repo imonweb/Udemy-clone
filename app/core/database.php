@@ -18,8 +18,8 @@ class Database
   public function query($query, $data)
   {
     $con = $this->connect();
-    // show($con);
+    show($con);
   }
 
-  
+
 }
