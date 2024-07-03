@@ -18,7 +18,7 @@ class Database
   public function query($query, $data = [], $type = 'object')
   {
     $con = $this->connect();
-    // show($con);
+    show($con);
     $stm = $con->prepare($query);
     if($stm)
     {
