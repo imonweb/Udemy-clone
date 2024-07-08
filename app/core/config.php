@@ -5,7 +5,7 @@
 
  
 /* ====== app info ====== */
-define('APP_NAME', 'Udemy App');
+define('APP_NAME', 'Udemy Clone');
 define('APP_DESC', 'Free and paid tutorials');
 // define('ROOT', 'http://localhost/php/Quick-Programming/udemy-clone/public');
 
@@ -33,6 +33,6 @@ if($_SERVER['SERVER_NAME'] == 'localhost')
   define('DBPASS', 'p@ssw0rd');
   define('DBDRIVER', 'mysql');
 
-  // root path .e.g. https://www.udemy-clone.com
+  // root path .e.g. https://www.udemy-clone
   define('ROOT', 'http://localhost/php/Quick-Programming/udemy-clone/public');
 }
