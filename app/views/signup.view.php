@@ -84,15 +84,6 @@
                     </div>
 
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required1>
-                        <div class="invalid-feedback">Please choose a username.</div>
-                      </div>
-                    </div>
-
-                    <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
                       <input type="password" name="password" class="form-control" id="yourPassword" required1>
                       <div class="invalid-feedback">Please enter your password!</div>
@@ -100,13 +91,13 @@
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Retype Password</label>
-                      <input type="password" name="password2" class="form-control" id="yourPassword" required1>
+                      <input type="password" name="retype_password" class="form-control" id="yourPassword" required1>
                       <div class="invalid-feedback">Please retype your password!</div>
                     </div>
 
                     <div class="col-12">
                       <div class="form-check">
-                        <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required1>
+                        <input class="form-check-input" name="terms" type="checkbox" value="1" id="acceptTerms" required1>
                         <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
                         <div class="invalid-feedback">You must agree before submitting.</div>
                       </div>
