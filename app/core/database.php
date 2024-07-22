@@ -48,8 +48,8 @@ class Database
   {
     // users table 
     $query = "
-      CREATE TABLE IF NOT EXISTS `users1` (
-        `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+      CREATE TABLE IF NOT EXISTS `users` (
+        `id` int(11) NOT NULL AUTO_INCREMENT,
         `email` varchar(100) NOT NULL,
         `firstname` varchar(30) NOT NULL,
         `lastname` varchar(30) NOT NULL,
