@@ -4,7 +4,7 @@
 * Users model
 */
 
-class User
+class User 
 {
   public $errors = [];
   protected $table = "users";
@@ -38,16 +38,27 @@ class User
       $this->errors['email'] = 'A email is required';
     }
 
+    //check email
+		// $query = "select * from users where email = :email limit 1";
+		// if(!filter_var($data['email'],FILTER_VALIDATE_EMAIL))
+		// {
+		// 	$this->errors['email'] = "Email is not valid";
+		// }else
+		// if($this->query($query,['email'=>$data['email']]))
+		// {
+		// 	$this->errors['email'] = "That email already exists";
+		// }
+
     if(empty($data['password']))
-    {
-      $this->errors['password'] = 'A password is required';
-    }
+		{
+			$this->errors['password'] = "A password is required";
+		}
 
-    if($data['password'] !== $data['retype_password'])
-    {
-      $this->errors['password'] = 'Passwords do not match';
+		if($data['password'] !== $data['retype_password'])
+		{
+			$this->errors['password'] = "Passwords do not match";
     }
-
+    
     if(empty($data['terms']))
     {
       $this->errors['terms'] = 'Please accept the terms and conditions';
@@ -75,21 +86,24 @@ class User
       }
     }
     // show($data);
+
+
     $keys = array_keys($data);
-    $values = array_values($data);
+    // $values = array_values($data);
 
+    // $query = "insert into users () values ()";
     $query = "insert into users ";
-    $query .= "(".implode(",", $keys).") values (:".implode(",:", $keys).")";
+    $query .= "(".implode(",", $keys) .") values (:".implode(",:", $keys) .")";
 
-    // echo $query;
+    echo $query;
 
-    $db = new Database();
+    // $db = new Database();
     // $db->query($query, $values);
-    $db->query($query, $data);
+    // $db->query($query, $data);
 
-    show($query);
+    // show($query);
     // show($values);
-    show($data);
+    // show($data);
   }
  
 

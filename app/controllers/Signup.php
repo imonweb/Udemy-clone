@@ -12,10 +12,10 @@ class Signup extends Controller
     // $db = new Database();
     // $db->create_tables();
 
+    show($_POST);
     
     $user = new User();
     // $result = $user->validate($_POST);
-    show($_POST);
     if($user->validate($_POST))
     {
       /*
