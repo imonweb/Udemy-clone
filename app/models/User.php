@@ -78,7 +78,8 @@ class User
     // remove unwanted columns 
     if(!empty($this->allowedColumns)){
       
-      foreach($this->allowedColumns as $key => $value){
+      foreach($data as $key => $value){
+      // foreach($this->allowedColumns as $key => $value){
         if(!in_array($key, $this->allowedColumns))
         {
           unset($data[$key]);
@@ -89,7 +90,7 @@ class User
 
 
     $keys = array_keys($data);
-    // $values = array_values($data);
+    $values = array_values($data);
 
     // $query = "insert into users () values ()";
     $query = "insert into users ";
@@ -97,13 +98,13 @@ class User
 
     echo $query;
 
-    // $db = new Database();
+    $db = new Database();
     // $db->query($query, $values);
-    // $db->query($query, $data);
+    $db->query($query, $data);
 
-    // show($query);
+    show($query);
     // show($values);
-    // show($data);
+    show($data);
   }
  
 
