@@ -13,5 +13,6 @@ spl_autoload_register(
 require 'config.php';
 require 'functions.php';
 require 'database.php';
+require 'model.php';
 require 'controller.php';
 require 'app.php';

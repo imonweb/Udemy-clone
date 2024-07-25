@@ -12,7 +12,8 @@ class Signup extends Controller
     // $db = new Database();
     // $db->create_tables();
 
-    show($_POST);
+    // show($_POST);
+    $data['errors'] = [];
     
     $user = new User();
     // $result = $user->validate($_POST);
@@ -37,8 +38,9 @@ class Signup extends Controller
 
 
     // var_dump($result);
-    show($user->errors);
+    // show($user->errors);
     // show($_POST);
+    $data['errors'] = $user->errors;
     $data['title'] = 'Signup';
 
     $this->view('signup', $data);
