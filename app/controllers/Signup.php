@@ -36,6 +36,7 @@ class Signup extends Controller
         $db->query($query, $arr);
         */
         $_POST['date'] = date('Y-m-d H:i:s');
+        $_POST['role'] = 'user';
         $user->insert($_POST);
 
         message("Your profile was successfully created. Please login");
