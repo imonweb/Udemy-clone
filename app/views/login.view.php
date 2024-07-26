@@ -68,7 +68,7 @@
                     <?php endif; ?>
 
                     <?php if(!empty($errors['email'])): ?>
-                      <div class="alert alert-danger text-center"><?=$errors['email']?></small>
+                      <div class="alert alert-danger text-center"><?=$errors['email']?></div>
                     <?php endif; ?>
 
                   <form method="post" class="row g-3 needs-validation" novalidate>
