@@ -1,4 +1,4 @@
-<main id="main">
+
   
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
@@ -39,9 +39,15 @@
           <?php if(!Auth::logged_in()) : ?>
             <li><a href="<?=ROOT?>/login">Login</a></li>
             <li><a href="<?=ROOT?>/signup">Signup</a></li>
-            <?php else: ?>
-              <li><a href="<?=ROOT?>/logout">Logout</a></li>
-
+          <?php else: ?>
+               <li class="dropdown"><a href="category"><span>Hi, <?=Auth::FirstName() ?></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                  <ul>
+                    <li><a href="<?=ROOT?>/admin">Dashboard</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="<?=ROOT?>/logout">Logout</a></li>
+                  </ul>
+                </li>
           <?php endif; ?>
         </ul>
       </nav><!-- .navbar -->
@@ -68,3 +74,5 @@
     </div>
 
   </header><!-- End Header -->
+
+  <main id="main">
