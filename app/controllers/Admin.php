@@ -1,7 +1,7 @@
  <?php
 /**
 *
-*   
+*   admin class
 *
 */
 
@@ -15,6 +15,5 @@ class Admin extends Controller
     $this->view('admin/dashboard', $data);
   }
  
-
 }
  
