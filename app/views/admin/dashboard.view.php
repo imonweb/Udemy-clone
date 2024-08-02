@@ -2,7 +2,7 @@
 
   <!--========= Main ==========-->
 
-  <main id="main" class="main">
+  <!-- <main id="main" class="main"> -->
 
     <div class="pagetitle">
       <h1>Dashboard</h1>
@@ -648,7 +648,8 @@
       </div>
     </section>
 
-  </main><!-- End #main -->
+  <!-- </main> -->
+  <!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <?php $this->view('admin/admin-footer', $data); ?>
