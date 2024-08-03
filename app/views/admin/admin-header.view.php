@@ -282,12 +282,33 @@
 
       <li class="nav-item">
         <a class="nav-link " href="<?=ROOT?>/admin/courses">
-          <i class="bi bi-mortarboard"></i>
-          <span>Courses</span>
+          <i class="bi bi-camera-reels"></i>
+          <span>My Courses</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
-       <li class="nav-item">
+      <li class="nav-item">
+        <a class="nav-link " href="<?=ROOT?>/admin/lessons">
+          <i class="bi bi-mortarboard"></i>
+          <span>Enroll Courses</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link " href="<?=ROOT?>/admin/history">
+          <i class="bi bi-hourglass-split"></i>
+          <span>Watch History</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link " href="<?=ROOT?>/admin/sales">
+          <i class="bi bi-cash"></i>
+          <span>Sales</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
         <a class="nav-link " href="<?=ROOT?>/admin/profile">
           <i class="bi bi-person"></i>
           <span>Profile</span>
