@@ -1,6 +1,6 @@
 <?php $this->view('admin/admin-header', $data); ?>
  
-
+    <?php ?>
     <div class="pagetitle">
       <h1>Profile</h1>
       <nav>
