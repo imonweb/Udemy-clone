@@ -1,6 +1,6 @@
 <?php $this->view('admin/admin-header', $data); ?>
  
-    <?php ?>
+    <?php if(!empty($row)): ?>
     <div class="pagetitle">
       <h1>Profile</h1>
       <nav>
@@ -290,6 +290,14 @@
         </div>
       </div>
     </section>
+
+    <?php else: ?>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-octagon me-1"></i>
+        That profile was not found!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif; ?>
  
 
 <?php $this->view('admin/admin-footer', $data); ?>
