@@ -8,6 +8,7 @@
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Users</li>
           <li class="breadcrumb-item active">Profile</li>
+          <li class="breadcrumb-item active"><?= esc($row->firstname) ?><?= esc($row->lastname) ?></li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -20,8 +21,8 @@
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
               <img src="<?=ROOT?>/niceadmin/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-              <h2>Kevin Anderson</h2>
-              <h3>Web Designer</h3>
+              <h2><?= esc($row->firstname) ?><?= esc($row->lastname) ?></h2>
+              <h3><?= esc($row->role) ?> <?= esc('<script>alert()</script>')?></h3>
               <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
