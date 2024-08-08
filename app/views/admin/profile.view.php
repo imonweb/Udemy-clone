@@ -22,7 +22,7 @@
 
               <img src="<?=ROOT?>/niceadmin/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
               <h2><?= esc($row->firstname) ?><?= esc($row->lastname) ?></h2>
-              <h3><?= esc($row->role) ?> <?= esc('<script>alert()</script>')?></h3>
+              <h3><?= esc($row->role) ?></h3>
               <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
