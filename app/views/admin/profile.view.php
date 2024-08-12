@@ -43,19 +43,19 @@
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                  <button onclick="set_tab(this.getAttribute('data-bs-target'))" class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview" id="#profile-overview">Overview</button>
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+                  <button onclick="set_tab(this.getAttribute('data-bs-target'))" class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit" id="#profile-edit">Edit Profile</button>
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
+                  <button onclick="set_tab(this.getAttribute('data-bs-target'))" class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings" id="#profile-settings">Settings</button>
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+                  <button onclick="set_tab(this.getAttribute('data-bs-target'))" class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password" id="#profile-change-password">Change Password</button>
                 </li>
 
               </ul>
@@ -328,6 +328,27 @@
     <?php endif; ?>
  
 <script>
+
+  if(typeof tab == 'undefined')
+  {
+    var tab = tab || "#profile-overview";
+    alert();
+  }
+
+  function show_tab(tab_name)
+  {
+    const someTabTriggerEl = document.querySelector(tab_name);
+    const tab = new bootstrap.Tab(someTabTriggerEl);
+
+    tab.show();
+  }
+
+  function set_tab(tab_name)
+  {
+    tab = tab_name;
+    // alert(tab);
+  }
+
   function load_image(file)
   {
     document.querySelector(".js-filename").innerHTML = "Selected File: " + file.name;
@@ -335,6 +356,10 @@
     var mylink = window.URL.createObjectURL(file);
 
     document.querySelector(".js-image-preview").src = mylink;
+  }
+
+  window.onload = function(){
+    show_tab('#profile-edit');
   }
 </script>
 
