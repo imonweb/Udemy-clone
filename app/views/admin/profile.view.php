@@ -107,7 +107,8 @@
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form method="post">
+                  <form method="post" enctype="multipart/form-data">
+
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
@@ -221,7 +222,7 @@
 
                     <div class="text-center">
                        <a href="<?=ROOT?>/admin">
-                        <button type="button" class="btn btn-primary">Back</button>
+                        <button type="button" class="btn btn-primary float-start">Back</button>
                       </a>
                       <!-- <button type="submit" class="btn btn-primary">Save Changes</button> -->
                       <button type="submit" class="btn btn-danger float-end">Save Changes</button>
