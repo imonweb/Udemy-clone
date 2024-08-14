@@ -133,6 +133,10 @@
                       <div class="col-md-8 col-lg-9">
                         <input name="firstname" type="text" class="form-control" id="firstname" value="<?=set_value('firstname', $row->firstname) ?>">
                       </div>
+
+                      <?php if(!empty($errors['firstname'])): ?>
+                        <small class="text-danger"><?=$errors['firstname']?></small>
+                      <?php endif; ?>
                     </div>
 
 
@@ -141,6 +145,10 @@
                       <div class="col-md-8 col-lg-9">
                         <input name="lastname" type="text" class="form-control" id="lastname" value="<?=set_value('lastname', $row->lastname) ?>">
                       </div>
+
+                      <?php if(!empty($errors['lastname'])): ?>
+                        <small class="text-danger"><?=$errors['lastname']?></small>
+                      <?php endif; ?>
                     </div>
 
                     <div class="row mb-3">
@@ -195,11 +203,11 @@
                     <div class="row mb-3">
                       <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter Profile</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="twitter" type="text" class="form-control" id="Twitter" value="https://twitter.com/#">
+                        <input name="twitter" type="text" class="form-control" id="Twitter" value="<?=set_value('twitter', $row->twitter) ?>">
                       </div>
 
-                      <?php if(!empty($errors['twitter_link'])): ?>
-                        <small class="text-danger"><?=$errors['twitter_link']?></small>
+                      <?php if(!empty($errors['twitter'])): ?>
+                        <small class="text-danger"><?=$errors['twitter']?></small>
                       <?php endif; ?>
 
                     </div>
@@ -207,22 +215,34 @@
                     <div class="row mb-3">
                       <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook Profile</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="facebook_link" type="text" class="form-control" id="Facebook" value="https://facebook.com/#">
+                        <input name="facebook_link" type="text" class="form-control" id="Facebook" value="<?=set_value('facebook', $row->facebook) ?>">
                       </div>
+
+                       <?php if(!empty($errors['facebook'])): ?>
+                        <small class="text-danger"><?=$errors['facebook']?></small>
+                      <?php endif; ?>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram Profile</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="instagram_link" type="text" class="form-control" id="Instagram" value="https://instagram.com/#">
+                        <input name="instagram_link" type="text" class="form-control" id="Instagram" value="<?=set_value('instagram', $row->instagram) ?>">
                       </div>
+
+                       <?php if(!empty($errors['instagram'])): ?>
+                        <small class="text-danger"><?=$errors['instagram']?></small>
+                      <?php endif; ?>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin Profile</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="linkedin_link" type="text" class="form-control" id="Linkedin" value="https://linkedin.com/#">
+                        <input name="linkedin_link" type="text" class="form-control" id="Linkedin" value="<?=set_value('linkedin', $row->linkedin) ?>">
                       </div>
+
+                       <?php if(!empty($errors['linkedin'])): ?>
+                        <small class="text-danger"><?=$errors['linkedin']?></small>
+                      <?php endif; ?>
                     </div>
 
                     <div class="text-center">

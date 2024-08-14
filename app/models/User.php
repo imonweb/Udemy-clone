@@ -38,12 +38,30 @@ class User extends Model
     if(empty($data['firstname']))
     {
       $this->errors['firstname'] = 'A first name is required';
+    } else 
+    if(!preg_match("/^[a-zA-Z]+$/", trim($data['firstname'])))
+    {
+      $this->errors['firstname'] = 'first name can only have letters without spaces';
     }
 
     if(empty($data['lastname']))
     {
       $this->errors['lastname'] = 'A last name is required';
+    } else 
+    if(!preg_match("/^[a-zA-Z]+$/", trim($data['lastname'])))
+    {
+      $this->errors['lastname'] = 'last name can only have letters without spaces';
     }
+
+    // if(empty($data['firstname']))
+    // {
+    //   $this->errors['firstname'] = 'A first name is required';
+    // }
+
+    // if(empty($data['lastname']))
+    // {
+    //   $this->errors['lastname'] = 'A last name is required';
+    // }
 
     // if(empty($data['email']))
     // {
@@ -93,12 +111,21 @@ class User extends Model
     if(empty($data['firstname']))
     {
       $this->errors['firstname'] = 'A first name is required';
+    } else 
+    if(!preg_match("/^[a-zA-Z]+$/", trim($data['firstname'])))
+    {
+      $this->errors['firstname'] = 'first name can only have letters without spaces';
     }
 
     if(empty($data['lastname']))
     {
       $this->errors['lastname'] = 'A last name is required';
+    } else 
+    if(!preg_match("/^[a-zA-Z]+$/", trim($data['lastname'])))
+    {
+      $this->errors['lastname'] = 'last name can only have letters without spaces';
     }
+
  
 		if(!filter_var($data['email'],FILTER_VALIDATE_EMAIL))
 		{
@@ -108,6 +135,14 @@ class User extends Model
 		{
 			$this->errors['email'] = "That email already exists";
 		}
+    
+    if(!preg_match("/^(09|\+2609)[0-9]{8}$/", trim($data['phone'])))
+    {
+      if(!filter_var($data['phone'], FILTER_VALIDATE_URL))
+      {
+        $this->errors['phone'] = "phone number is not valid";
+      }
+    }
 
     if(!empty($data['facebook']))
     {
