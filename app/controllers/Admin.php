@@ -41,7 +41,7 @@ class Admin extends Controller
         file_put_contents("uploads/index.php", "<?php //silence" );
       }
 
-      if($user->edit_validate($_POST))
+      if($user->edit_validate($_POST, $id))
       {
 
         
@@ -75,6 +75,7 @@ class Admin extends Controller
     }
 
     $data['title'] = 'Profile';
+    message("Profile saved successfully");
     $data['errors'] = $user->errors;
 
     $this->view('admin/profile', $data);
