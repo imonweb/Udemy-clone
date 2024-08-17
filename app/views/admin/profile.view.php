@@ -245,12 +245,16 @@
                       <?php endif; ?>
                     </div>
 
+                    <div class="js-prog progress my-4 hide">
+                      <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Saving.. 50%</div>
+                    </div>
+
                     <div class="text-center">
                        <a href="<?=ROOT?>/admin">
                         <button type="button" class="btn btn-primary float-start">Back</button>
                       </a>
                       <!-- <button type="submit" class="btn btn-primary">Save Changes</button> -->
-                      <button type="submit" class="btn btn-danger float-end">Save Changes</button>
+                      <button type="submit" onclick="save_profile()" class="btn btn-danger float-end">Save Changes</button>
                     </div>
                   </form><!-- End Profile Edit Form -->
 
