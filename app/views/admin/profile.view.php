@@ -385,6 +385,56 @@
     show_tab(tab);
   }
 
+  //upload functions
+  function save_profile()
+  {
+    var image = document.querySelector(".js-profile-image-input");
+    send_data({
+      pic: image.files[0]
+    });
+  }
+
+  function send_data(obj)
+  {
+
+    var prog = document.querySelector(".js-prog");
+    prog.children[0].style.width = "0%";
+    prog.classList.remove("hide");
+
+    var myform = new FormData();
+    for(key in obj){
+      myform.append(key,obj[key]); 
+    }
+
+    var ajax = new XMLHttpRequest();
+
+    ajax.addEventListener('readystatechange',function(){
+
+      if(ajax.readyState == 4){
+
+        if(ajax.status == 200){
+          //everything went well
+          alert("upload complete");
+        }else{
+          //error
+          alert("an error occurred");
+        }
+      }
+    });
+
+    ajax.upload.addEventListener('progress',function(e){
+
+      var percent = Math.round((e.loaded / e.total) * 100);
+      prog.children[0].style.width = percent + "%";
+      prog.children[0].innerHTML = "Saving.. " + percent + "%";
+
+    });
+
+    ajax.open('post','',true);
+    ajax.send(myform);
+
+  }
+
 </script>
  
 
