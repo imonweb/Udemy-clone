@@ -401,7 +401,7 @@
   //upload functions
   function save_profile(e)
   {
-
+    // collect image data
     var form = e.currentTarget.form;
     var inputs = form.querySelectorAll("input,textarea");
     var obj = {};
