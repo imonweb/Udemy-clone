@@ -1,15 +1,15 @@
-<?php $this->view('admin/admin-header', $data); ?>
- 
-    <?php if(!empty($row)): ?>
+<?php $this->view('admin/admin-header',$data) ?>
 
-    <div class="pagetitle">
+	<?php if(!empty($row)):?>
+
+	<div class="pagetitle">
       <h1>Profile</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Users</li>
           <li class="breadcrumb-item active">Profile</li>
-          <li class="breadcrumb-item active"><?= esc($row->firstname) ?> <?=esc($row->lastname) ?></li>
+          <li class="breadcrumb-item active"><?=esc($row->firstname)?> <?=esc($row->lastname)?></li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -21,9 +21,9 @@
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="<?=ROOT?>/<?=$row->image?>" alt="Profile" style="width:150px; max-width:150px; height:150px; object-fit: cover;" class="rounded-circle">
-              <h2><?= esc($row->firstname) ?> <?= esc($row->lastname) ?></h2>
-              <h3><?= esc($row->role) ?></h3>
+              <img src="<?=ROOT?>/<?=$row->image?>" alt="Profile" style="width:150px;max-width:150px;height:150px;object-fit: cover;" class="rounded-circle">
+              <h2><?=esc($row->firstname)?> <?=esc($row->lastname)?></h2>
+              <h3><?=esc($row->role)?></h3>
               <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -63,43 +63,43 @@
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
                   <h5 class="card-title">About</h5>
-                  <p class="small fst-italic"><?=esc($row->about) ?></p>
+                  <p class="small fst-italic"><?=esc($row->about)?></p>
 
                   <h5 class="card-title">Profile Details</h5>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                    <div class="col-lg-9 col-md-8"><?=esc($row->firstname) ?> <?=esc($row->lastname) ?></div>
+                    <div class="col-lg-9 col-md-8"><?=esc($row->firstname)?> <?=esc($row->lastname)?></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Company</div>
-                    <div class="col-lg-9 col-md-8"><?=esc($row->company) ?> </div>
+                    <div class="col-lg-9 col-md-8"><?=esc($row->company)?></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Job</div>
-                    <div class="col-lg-9 col-md-8"><?=esc($row->job) ?></div>
+                    <div class="col-lg-9 col-md-8"><?=esc($row->job)?></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Country</div>
-                    <div class="col-lg-9 col-md-8"><?=esc($row->country) ?> </div>
+                    <div class="col-lg-9 col-md-8"><?=esc($row->country)?></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Address</div>
-                    <div class="col-lg-9 col-md-8"><?=esc($row->address) ?> </div>
+                    <div class="col-lg-9 col-md-8"><?=esc($row->address)?></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8"> <?=esc($row->phone) ?></div>
+                    <div class="col-lg-9 col-md-8"><?=esc($row->phone)?></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8"><?=esc($row->email) ?></div>
+                    <div class="col-lg-9 col-md-8"><?=esc($row->email)?></div>
                   </div>
 
                 </div>
@@ -117,132 +117,145 @@
                           <img class="js-image-preview" src="<?=ROOT?>/<?=$row->image?>" alt="Profile" style="width:200px;max-width:200px;height:200px;object-fit: cover;">
                           <div class="js-filename m-2">Selected File: None</div>
                         </div>
-
                         <div class="pt-2">
                           <label class="btn btn-primary btn-sm" title="Upload new profile image" >
                             <i class="text-white bi bi-upload"></i>
-                            <input onchange="load_image(this.files[0])" type="file" name="image" style="display: none;">
+                            <input class="js-profile-image-input" onchange="load_image(this.files[0])" type="file" name="image" style="display: none;">
                           </label>
                           <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
                         </div>
                       </div>
                     </div>
 
-                     <div class="row mb-3">
-                      <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
+                    <div class="row mb-3">
+                      <label for="firstname" class="col-md-4 col-lg-3 col-form-label">First Name</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="firstname" type="text" class="form-control" id="firstname" value="<?=set_value('firstname', $row->firstname) ?>">
+                        <input name="firstname" type="text" class="form-control" id="firstname" value="<?=set_value('firstname',$row->firstname)?>" required>
                       </div>
 
-                      <?php if(!empty($errors['firstname'])): ?>
+                      <?php if(!empty($errors['firstname'])):?>
                         <small class="text-danger"><?=$errors['firstname']?></small>
-                      <?php endif; ?>
-                    </div>
+                      <?php endif;?>
 
+                    </div>
 
                     <div class="row mb-3">
-                      <label for="lastName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
+                      <label for="lastname" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="lastname" type="text" class="form-control" id="lastname" value="<?=set_value('lastname', $row->lastname) ?>">
+                        <input name="lastname" type="text" class="form-control" id="lastname" value="<?=set_value('lastname',$row->lastname)?>" required>
                       </div>
 
-                      <?php if(!empty($errors['lastname'])): ?>
+                      <?php if(!empty($errors['lastname'])):?>
                         <small class="text-danger"><?=$errors['lastname']?></small>
-                      <?php endif; ?>
-                    </div>
+                      <?php endif;?>
 
+                    </div>
+ 
                     <div class="row mb-3">
                       <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
                       <div class="col-md-8 col-lg-9">
-                        <textarea name="about" class="form-control" id="about" style="height: 100px"><?=set_value('about', $row->about) ?></textarea>
+                        <textarea name="about" class="form-control" id="about" style="height: 100px"><?=set_value('about',$row->about)?></textarea>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="company" type="text" class="form-control" id="company" value="<?=set_value('company', $row->company) ?>">
+                        <input name="company" type="text" class="form-control" id="company" value="<?=set_value('company',$row->company)?>">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="job" type="text" class="form-control" id="Job" value="<?=set_value('job', $row->job) ?>">
+                        <input name="job" type="text" class="form-control" id="Job" value="<?=set_value('job',$row->job)?>">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Country" class="col-md-4 col-lg-3 col-form-label">Country</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="country" type="text" class="form-control" id="Country" value="<?=set_value('country', $row->country) ?>">
+                        <input name="country" type="text" class="form-control" id="Country" value="<?=set_value('country',$row->country)?>">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="address" type="text" class="form-control" id="Address" value="<?=set_value('country', $row->country) ?>">
+                        <input name="address" type="text" class="form-control" id="Address" value="<?=set_value('address',$row->address)?>">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="phone" type="text" class="form-control" id="Phone" value="<?=set_value('phone', $row->phone) ?>">
+                        <input name="phone" type="text" class="form-control" id="Phone" value="<?=set_value('phone',$row->phone)?>">
                       </div>
+
+                      <?php if(!empty($errors['phone'])):?>
+                        <small class="text-danger"><?=$errors['phone']?></small>
+                      <?php endif;?>
+
                     </div>
 
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" value="<?=set_value('email', $row->email) ?>">
+                        <input name="email" type="email" class="form-control" id="Email" value="<?=set_value('email',$row->email)?>" required>
                       </div>
+
+                      <?php if(!empty($errors['email'])):?>
+                        <small class="text-danger"><?=$errors['email']?></small>
+                      <?php endif;?>
+
                     </div>
 
                     <div class="row mb-3">
                       <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter Profile</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="twitter" type="text" class="form-control" id="Twitter" value="<?=set_value('twitter', $row->twitter) ?>">
+                        <input name="twitter" type="text" class="form-control" id="Twitter" value="<?=set_value('twitter',$row->twitter)?>">
                       </div>
 
-                      <?php if(!empty($errors['twitter'])): ?>
+                      <?php if(!empty($errors['twitter'])):?>
                         <small class="text-danger"><?=$errors['twitter']?></small>
-                      <?php endif; ?>
+                      <?php endif;?>
 
                     </div>
 
                     <div class="row mb-3">
                       <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook Profile</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="facebook_link" type="text" class="form-control" id="Facebook" value="<?=set_value('facebook', $row->facebook) ?>">
+                        <input name="facebook" type="text" class="form-control" id="Facebook" value="<?=set_value('facebook',$row->facebook)?>">
                       </div>
 
-                       <?php if(!empty($errors['facebook'])): ?>
+                      <?php if(!empty($errors['facebook'])):?>
                         <small class="text-danger"><?=$errors['facebook']?></small>
-                      <?php endif; ?>
+                      <?php endif;?>
+
                     </div>
 
                     <div class="row mb-3">
                       <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram Profile</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="instagram_link" type="text" class="form-control" id="Instagram" value="<?=set_value('instagram', $row->instagram) ?>">
+                        <input name="instagram" type="text" class="form-control" id="Instagram" value="<?=set_value('instagram',$row->instagram)?>">
                       </div>
 
-                       <?php if(!empty($errors['instagram'])): ?>
+                      <?php if(!empty($errors['instagram'])):?>
                         <small class="text-danger"><?=$errors['instagram']?></small>
-                      <?php endif; ?>
+                      <?php endif;?>
+
                     </div>
 
                     <div class="row mb-3">
                       <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin Profile</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="linkedin_link" type="text" class="form-control" id="Linkedin" value="<?=set_value('linkedin', $row->linkedin) ?>">
+                        <input name="linkedin" type="text" class="form-control" id="Linkedin" value="<?=set_value('linkedin',$row->linkedin)?>">
                       </div>
 
-                       <?php if(!empty($errors['linkedin'])): ?>
+                      <?php if(!empty($errors['linkedin'])):?>
                         <small class="text-danger"><?=$errors['linkedin']?></small>
-                      <?php endif; ?>
+                      <?php endif;?>
+
                     </div>
 
                     <div class="js-prog progress my-4 hide">
@@ -250,11 +263,10 @@
                     </div>
 
                     <div class="text-center">
-                       <a href="<?=ROOT?>/admin">
-                        <button type="button" class="btn btn-primary float-start">Back</button>
+                      <a href="<?=ROOT?>/admin">
+                        <button type="button" class="btn btn-primary  float-start">Back</button>
                       </a>
-                      <!-- <button type="submit" class="btn btn-primary">Save Changes</button> -->
-                      <button type="submit" onclick="save_profile()" class="btn btn-danger float-end">Save Changes</button>
+                      <button type="button" onclick="save_profile(event)" type="submit" class="btn btn-danger float-end">Save Changes</button>
                     </div>
                   </form><!-- End Profile Edit Form -->
 
@@ -343,14 +355,15 @@
       </div>
     </section>
 
-    <?php else: ?>
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <i class="bi bi-exclamation-octagon me-1"></i>
-        That profile was not found!
+	<?php else:?>
+
+		<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                That profile was not found!
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
-    <?php endif; ?>
- 
+
+	<?php endif;?>
+
 <script>
   
   
@@ -386,18 +399,49 @@
   }
 
   //upload functions
-  function save_profile()
+  function save_profile(e)
   {
-    var image = document.querySelector(".js-profile-image-input");
-    send_data({
-      pic: image.files[0]
-    });
+
+    var form = e.currentTarget.form;
+    var inputs = form.querySelectorAll("input,textarea");
+    var obj = {};
+    var image_added = false;
+
+    for (var i = 0; i < inputs.length; i++) {
+      var key = inputs[i].name;
+
+      if(key == 'image'){
+        if(typeof inputs[i].files[0] == 'object'){
+          obj[key] = inputs[i].files[0];
+          image_added = true;
+        }
+      }else{
+        obj[key] = inputs[i].value;
+      }
+    }
+ 
+    //validate image
+    if(image_added){
+
+      var allowed = ['jpg','jpeg','png'];
+      if(typeof obj.image == 'object'){
+        var ext = obj.image.name.split(".").pop();
+      }
+
+      if(!allowed.includes(ext.toLowerCase())){
+        alert("Only these file types are allowed in profile image: "+ allowed.toString(","));
+        return;
+      }
+    }
+
+    send_data(obj);
+
   }
 
-  function send_data(obj)
+  function send_data(obj, progbar = 'js-prog')
   {
 
-    var prog = document.querySelector(".js-prog");
+    var prog = document.querySelector("."+progbar);
     prog.children[0].style.width = "0%";
     prog.classList.remove("hide");
 
@@ -414,7 +458,9 @@
 
         if(ajax.status == 200){
           //everything went well
-          alert("upload complete");
+          //alert("upload complete");
+          //window.location.reload();
+          handle_result(ajax.responseText);
         }else{
           //error
           alert("an error occurred");
@@ -435,7 +481,23 @@
 
   }
 
-</script>
- 
+  function handle_result(result)
+  {
+    var obj = JSON.parse(result);
+    if(typeof obj == 'object'){
+      //object was created
 
-<?php $this->view('admin/admin-footer', $data); ?>
+      if(typeof obj.errors == 'object')
+      {
+        //we have errors
+        alert(obj.errors);
+      }else{
+        //save complete
+        alert("Data saved successfully!");
+      }
+    }
+  }
+
+</script>
+
+<?php $this->view('admin/admin-footer',$data) ?>
